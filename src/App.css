@@ -1,0 +1,20 @@
+.Content{
+  width:60%;
+  margin:100px auto;
+  text-align: center;
+}
+
+footer{
+  width:100%;
+  display:flex;
+  justify-content: space-around;
+  border:1px solid green;
+}
+footer ul{
+  list-style: none;
+  display:flex;
+
+}
+footer ul li{
+  margin-left:10px;
+}
