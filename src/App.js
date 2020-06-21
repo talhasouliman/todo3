@@ -8,9 +8,9 @@ class App extends Component {
   
   state = {
      notes : [
-       //{id:1, note:"mohammed", checking:"true"},
-      // {id:2, note:"moha", checking:"true"},
-      // {id:3, note:"ahmed", checking:"true"}
+       {id:1, note:"mohammed", checking:"true"},
+       {id:2, note:"moha", checking:"true"},
+       {id:3, note:"ahmed", checking:"true"}
      ]
   }
 
@@ -35,23 +35,31 @@ class App extends Component {
 
 
   render(){
+
+    let {notes} = this.state;
+    let myNotes = notes.map( item => {
+      return <All note={item.note} key={item.id} id={item.id} delete={this.delete}/>
+    });
+
     return (
       <div className="App">
         <div className="Content">
             <h1>todo</h1>
             <Add add={this.add}/>
-            <All notes={this.state.notes} delete={this.delete}/>
+            <ul>{myNotes}</ul>
+            
+
+            
             <footer>
               <span>items left</span>
-              <ul>
-                <li>All</li>
-                <li>Active</li>
-                <li>Completed</li>
-              </ul>
-
+                <ul>
+                  <li>All</li>
+                  <li>Active</li>
+                  <li>Completed</li>
+                </ul>
               <button>Clear Completed</button>
-
             </footer>
+
         </div>
       </div>
     );
