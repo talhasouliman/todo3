@@ -8,28 +8,38 @@ class App extends Component {
   
   state = {
      notes : [
-       {id:1, note:"mohammed", checking:"true"},
-       {id:2, note:"moha", checking:"true"},
-       {id:3, note:"ahmed", checking:"true"}
+       { note:"mohammed", checking:"true"},
+       { note:"moha", checking:"true"},
+       { note:"ahmed", checking:"true"}
      ]
   }
 
   add = (value) => {
     let mylist = this.state.notes;
-    let k = 1 + Math.random();
-    let myitem = {id:k, note:value, checking:"true"};
+    
+    let myitem = { note:value, checking:"true"};
     mylist.push(myitem);
     this.setState({
       notes: mylist
     });
   }
 
-  delete = (id) => {
-    let mylist = this.state.notes;
-    let myarray = mylist.filter( k => k.id !== id);
+  delete = (index) => {
+    let notes = this.state.notes;
+    notes.splice(index , 1);
     this.setState({
-      notes : myarray
+      notes 
     });
+
+  }
+
+  edit = (index, value) => {
+    let {notes} = this.state;
+    let mynote = notes[index];
+    mynote['note'] = value;
+    this.setState({
+      notes
+    })
 
   }
 
@@ -37,8 +47,8 @@ class App extends Component {
   render(){
 
     let {notes} = this.state;
-    let myNotes = notes.map( item => {
-      return <All note={item.note} key={item.id} id={item.id} delete={this.delete}/>
+    let myNotes = notes.map( (item , index) => {
+      return <All note={item.note} key={index} index={index} delete={this.delete} edit={this.edit}/>
     });
 
     return (

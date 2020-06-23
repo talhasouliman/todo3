@@ -22,7 +22,7 @@ handleSubmit = (e) => {
 
      console.log(this.state.note);
 
- }
+}
 
 render(){
       
@@ -32,7 +32,6 @@ render(){
               <input type="text" placeholder="Enter some notes" onChange={(e) => this.handleChange(e.target.value)} value={this.state.note} />
               <input type="submit" value="Add"/>
           </form>
-        
       </div>
     );
   }
