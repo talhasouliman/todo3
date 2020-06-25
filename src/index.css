@@ -25,3 +25,11 @@ ul{
 .through{
   text-decoration: line-through;
 }
+
+.Add{
+  display:inline-block;
+}
+
+.checkAll{
+  display:inline-block;
+}

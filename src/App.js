@@ -1,7 +1,12 @@
 import React, {Component} from 'react';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {Link, NavLink} from 'react-router-dom';
 import './App.css';
 import Add from './Components/addItems/Add';
 import All from './Components/All/All';
+import Active from './Components/Active/Active';
+import Completed from './Components/Completed/Completed';
+
 
 
 class App extends Component {
@@ -16,7 +21,6 @@ class App extends Component {
 
   add = (value) => {
     let mylist = this.state.notes;
-    
     let myitem = { note:value, checking:false};
     mylist.push(myitem);
     this.setState({
@@ -52,33 +56,81 @@ class App extends Component {
       })
   }
 
+  clearCompleted = () => {
+    let {notes} = this.state;
+    let lesnotes = notes.filter(k => k.checking == false);
+    this.setState({
+      notes : lesnotes
+    })
+  }
+
+  checkAll = () => {
+    let {notes} = this.state;
+    for(let i=0; i<notes.length; i++){
+      notes[i].checking = !notes[i].checking;
+    }
+    this.setState({
+      notes
+    })
+  }
+
 
   render(){
 
     let {notes} = this.state;
+
+    let mesnotes = notes.filter(k => k.checking == false);
+
+
     let myNotes = notes.map( (item , index) => {
-      return <All note={item.note} key={index} index={index} delete={this.delete} edit={this.edit} checking={item.checking} changeChecking={this.changeChecking}/>
+      /* return <All note={item.note} key={index} index={index} delete={this.delete} edit={this.edit} checking={item.checking} changeChecking={this.changeChecking}/>
+      */
+      return <Route path="/" exact render={(routeProps) => (<All {...routeProps} note={item.note} key={index} index={index} delete={this.delete} edit={this.edit} checking={item.checking} changeChecking={this.changeChecking}/>)}/>
     });
 
+    let myNotes1 = notes.map( (item , index) => {
+     if(!item.checking){
+      return <Route path="/active" exact render={(routeProps) => (<Active {...routeProps} note={item.note} key={index} index={index} delete={this.delete} edit={this.edit} checking={item.checking} changeChecking={this.changeChecking}/>)}/>
+      }
+    });
+
+    let myNotes2 = notes.map( (item , index) => {
+      if(item.checking){
+       return <Route path="/completed" exact render={(routeProps) => (<Completed {...routeProps} note={item.note} key={index} index={index} delete={this.delete} edit={this.edit} checking={item.checking} changeChecking={this.changeChecking}/>)}/>
+       }
+     });
+
+    
+
+
+
+    
 
     return (
       <div className="App">
         <div className="Content">
             <h1>todo</h1>
+            <span onClick={this.checkAll}>v</span>
             <Add add={this.add}/>
-            <ul>{myNotes}</ul>
+            <Router>
+                
+                 <ul>{myNotes}</ul>
+                 <ul>{myNotes1}</ul>
+                 <ul>{myNotes2}</ul>
+                                  
+                 
             
+                  <footer>
+                      <span>{mesnotes.length}items left</span>
+                      <ul>
+                        <li> <NavLink to="/"> All </NavLink></li>
+                        <li> <NavLink to="/active"> Active </NavLink></li>
+                        <li> <NavLink to="/completed"> Completed </NavLink></li>
+                      </ul>
+                    <button onClick={this.clearCompleted}>Clear Completed</button>
+                  </footer>
 
-            
-            <footer>
-              <span>items left</span>
-                <ul>
-                  <li>All</li>
-                  <li>Active</li>
-                  <li>Completed</li>
-                </ul>
-              <button>Clear Completed</button>
-            </footer>
+            </Router>
 
         </div>
       </div>

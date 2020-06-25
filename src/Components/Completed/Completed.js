@@ -1,9 +1,9 @@
 import React, {Component, Fragment} from 'react';
-import './All.css';
+import './Completed.css';
 
 
 
-class All extends Component {
+class Completed extends Component {
 
     state = {
       isEdit : false,
@@ -31,7 +31,7 @@ class All extends Component {
       let mydelete = this.props.delete;
       let note = this.props.note;
       let index = this.props.index;
-     
+      
       
       /* change style of note checked */
       let {checking} = this.props;
@@ -81,4 +81,4 @@ class All extends Component {
   }
 }
 
-export default All;
+export default Completed;
