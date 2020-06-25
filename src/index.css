@@ -7,7 +7,21 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.App{
+  width:70%;
+  margin: 80px auto;
+  padding:20px;
+  background-color:burlywood;
+}
+
+ul{
+  list-style: none;
+}
+
+.myNote{
+  font-weight: bold;
+}
+
+.through{
+  text-decoration: line-through;
 }

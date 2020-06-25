@@ -8,16 +8,16 @@ class App extends Component {
   
   state = {
      notes : [
-       { note:"mohammed", checking:"true"},
-       { note:"moha", checking:"true"},
-       { note:"ahmed", checking:"true"}
+       { note:"mohammed", checking:false},
+       { note:"moha", checking:false},
+       { note:"ahmed", checking:false}
      ]
   }
 
   add = (value) => {
     let mylist = this.state.notes;
     
-    let myitem = { note:value, checking:"true"};
+    let myitem = { note:value, checking:false};
     mylist.push(myitem);
     this.setState({
       notes: mylist
@@ -43,13 +43,23 @@ class App extends Component {
 
   }
 
+  changeChecking = (k) => {
+      let {notes} = this.state;
+      let note = notes[k];
+      note.checking = !(note.checking);
+      this.setState({
+        notes
+      })
+  }
+
 
   render(){
 
     let {notes} = this.state;
     let myNotes = notes.map( (item , index) => {
-      return <All note={item.note} key={index} index={index} delete={this.delete} edit={this.edit}/>
+      return <All note={item.note} key={index} index={index} delete={this.delete} edit={this.edit} checking={item.checking} changeChecking={this.changeChecking}/>
     });
+
 
     return (
       <div className="App">

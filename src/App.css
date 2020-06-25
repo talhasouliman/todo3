@@ -1,6 +1,6 @@
 .Content{
   width:60%;
-  margin:100px auto;
+  margin:10px auto;
   text-align: center;
 }
 
@@ -8,7 +8,9 @@ footer{
   width:100%;
   display:flex;
   justify-content: space-around;
+  align-items: center;
   border:1px solid green;
+  background-color:beige;
 }
 footer ul{
   list-style: none;
@@ -18,3 +20,4 @@ footer ul{
 footer ul li{
   margin-left:10px;
 }
+

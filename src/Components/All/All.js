@@ -6,7 +6,8 @@ import './All.css';
 class All extends Component {
 
     state = {
-      isEdit : false
+      isEdit : false,
+     // isChecked : false
     } 
     
     change = () => {
@@ -25,16 +26,38 @@ class All extends Component {
       this.change();
 
     }
+/********************************************* 
+    changeChecked = () => {
+      let {checking} = this.state;
+      this.setState({
+        isChecked : !isChecked
+      })
+
+    }
+    */
 
     renderNote = () => {  
       let mydelete = this.props.delete;
       let note = this.props.note;
       let index = this.props.index;
+      let {isChecked} = this.state;
+      
+      /* change style of note checked */
+      let {checking} = this.props;
+      let classList = "through";
+      let classList1 = "myNote ";
+      (checking) ? classList1 = classList1 + classList : console.log("hi"); 
+      
+
+      let {changeChecking} = this.props;
+
+      
 
       return (
+         
 
-          <li>
-             <input type="checkbox" />
+          <li className={classList1}>
+             <input type="checkbox" checked={isChecked} onChange={() => changeChecking(index)}/>
              <span>{note}</span>
              <button onClick={() => this.change()}>Edit</button> 
              <button onClick={() => mydelete(index)}>x</button> 
@@ -43,8 +66,6 @@ class All extends Component {
     }
 
     renderForm = ()  => {
-      let {edit} = this.props;
-      let {index} = this.props;
       let {note} = this.props;
       return (
         <form onSubmit={this.beforEdit}>
@@ -56,6 +77,9 @@ class All extends Component {
 
     render(){
       let {isEdit} = this.state;
+
+      
+
       return (
         <Fragment>
         
