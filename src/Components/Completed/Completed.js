@@ -49,8 +49,7 @@ class Completed extends Component {
 
           <li className={classList1}>
              <input type="checkbox" checked={checking} onChange={() => changeChecking(index)}/>
-             <span>{note}</span>
-             <button onClick={() => this.change()}>Edit</button> 
+             <span onDoubleClick={() => this.change()}>{note}</span> 
              <button onClick={() => mydelete(index)}>x</button> 
           </li> 
           );
