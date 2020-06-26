@@ -66,8 +66,20 @@ class App extends Component {
 
   checkAll = () => {
     let {notes} = this.state;
+    let j = 0;
+
     for(let i=0; i<notes.length; i++){
-      notes[i].checking = !notes[i].checking;
+      if( notes[i].checking == true){j++}
+    }
+    
+    if( j == (notes.length)){
+        for(let i=0; i<notes.length; i++){
+          notes[i].checking = false;
+        }
+    } else{
+      for(let i=0; i<notes.length; i++){
+        notes[i].checking = true;
+      }
     }
     this.setState({
       notes
