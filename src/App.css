@@ -1,7 +1,16 @@
+
 .Content{
   width:60%;
   margin:10px auto;
   text-align: center;
+  background-color:burlywood;
+  
+}
+
+.Content h1{
+  font-weight: bolder;
+  font-size: 50px;
+  
 }
 
 footer{
@@ -9,9 +18,12 @@ footer{
   display:flex;
   justify-content: space-around;
   align-items: center;
-  border:1px solid green;
   background-color:beige;
+  font-size:16px;
+  font-weight: bold;
+
 }
+
 footer ul{
   list-style: none;
   display:flex;
@@ -19,5 +31,33 @@ footer ul{
 }
 footer ul li{
   margin-left:10px;
+  
+}
+footer li .link{
+  text-decoration: none;
+  color:green;
+  padding:2px 4px;
+}
+footer li .active{
+  border:1px solid green;
+  border-radius: 5px;
+  background-color: #c7ffdc;
+
+}
+footer button{
+  padding:2px 4px;
+  font-size:15px;
+  font-weight: bold;
+  
+}
+
+.checkAll{
+  border:1px solid grey;
+  padding:4px 12px;
+ 
+}
+
+.myicon{
+  color :grey; 
 }
 

@@ -7,12 +7,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.App{
-  width:70%;
-  margin: 80px auto;
-  padding:20px;
-  background-color:burlywood;
-}
 
 ul{
   list-style: none;
@@ -24,12 +18,87 @@ ul{
 
 .through{
   text-decoration: line-through;
+  color:grey;
 }
 
+.fatherAdd{
+  display:flex;
+  justify-content: center;
+  width:80%;
+  
+  margin:0px auto;
+ 
+}
 .Add{
+  
+  width:90%;
+}
+.Add input[type="text"]{
+  height:29px;
+  border:1px solid gray;
+  width:85%;
   display:inline-block;
+  padding-left:20px;
+  
+  
+}
+.Add input[type="submit"]{
+  padding:8px 9px;
+  display:inline-block;
+  width:10%;
+  
+  font-weight: bold;
+  border:1px solid gray;
 }
 
-.checkAll{
-  display:inline-block;
+.listItem{
+  width:71%;
+  margin:10px auto;
+  
+}
+
+.ourNotes{
+  display:flex;
+  margin-top:10px;
+  justify-content: space-between;
+  font-size: 18px;
+}
+
+.ourNotes > input{
+  width:16px;
+  height:16px;
+}
+.ourNotes > span{
+  
+  width:90%;
+  text-align: left;
+}
+
+.ourNotes > button{
+  height:25px;
+  width:30px;
+  color:red;
+  background-color: #fabdbd;
+  font-weight: bolder;
+  font-size: 16px;
+  border:1px solid #e19191
+}
+
+.updateForm{
+  width:100%;
+  display:flex;
+  justify-content: space-between;
+  
+}
+
+.updateForm > input{
+  width:80%;
+  height:25px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.updateForm > button{
+  width:15%;
+  height:30px;
+  font-weight: bold;
 }

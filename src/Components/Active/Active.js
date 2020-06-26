@@ -1,6 +1,4 @@
 import React, {Component, Fragment} from 'react';
-import './Active.css';
-
 
 
 class Active extends Component {
@@ -47,9 +45,9 @@ class Active extends Component {
       return (
          
 
-          <li className={classList1}>
+          <li className="ourNotes">
              <input type="checkbox" checked={checking} onChange={() => changeChecking(index)}/>
-             <span onDoubleClick={() => this.change()}>{note}</span> 
+             <span className={classList1} onDoubleClick={() => this.change()}>{note}</span> 
              <button onClick={() => mydelete(index)}>x</button> 
           </li> 
           );
@@ -58,7 +56,7 @@ class Active extends Component {
     renderForm = ()  => {
       let {note} = this.props;
       return (
-        <form onSubmit={this.beforEdit}>
+        <form className="updateForm" onSubmit={this.beforEdit}>
           <input type="text" defaultValue={note} ref={v => {this.input = v}}/>
           <button>Update</button>
         </form>
