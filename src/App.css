@@ -54,8 +54,10 @@ footer button{
 }
 
 .checkAll{
-  border:1px solid grey;
+  border-right:1px solid grey;
   padding:4px 12px;
+  margin-right:-75px;
+  z-index: 9;
  
 }
 

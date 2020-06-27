@@ -106,6 +106,7 @@ class App extends Component {
      if(!item.checking){
       return <Route path="/active" exact key={index} render={(routeProps) => (<Active {...routeProps} note={item.note} key={index} index={index} delete={this.delete} edit={this.edit} checking={item.checking} changeChecking={this.changeChecking}/>)}/>
       }
+      
     });
 
     let myNotes2 = notes.map( (item , index) => {
