@@ -30,7 +30,7 @@ ul{
  
 }
 .Add{
-  
+
   width:90%;
 }
 .Add input[type="text"]{
@@ -39,6 +39,8 @@ ul{
   width:85%;
   display:inline-block;
   padding-left:20px;
+  font-size: 16px;
+  font-weight: bold;
   
   
 }
