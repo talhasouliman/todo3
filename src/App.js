@@ -23,8 +23,10 @@ class App extends Component {
 
   add = (value) => {
     let mylist = this.state.notes;
-    let myitem = { note:value, checking:false};
-    mylist.push(myitem);
+    if(value !== ""){
+        let myitem = { note:value, checking:false};
+        mylist.push(myitem);
+    }
     this.setState({
       notes: mylist
     });
