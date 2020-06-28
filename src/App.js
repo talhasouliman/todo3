@@ -6,7 +6,6 @@ import Add from './Components/addItems/Add';
 import All from './Components/All/All';
 import Active from './Components/Active/Active';
 import Completed from './Components/Completed/Completed';
-/*import down from './down.png';*/
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -96,11 +95,14 @@ class App extends Component {
 
     let mesnotes = notes.filter(k => k.checking === false);
 
+    /* render of All items */
 
     let myNotes = notes.map( (item , index) => {
   
       return <Route path="/" exact key={index} render={(routeProps) => (<All {...routeProps} note={item.note} key={index} index={index} delete={this.delete} edit={this.edit} checking={item.checking} changeChecking={this.changeChecking}/>)}/>
     });
+
+    /* render of active items */
 
     let myNotes1 = notes.map( (item , index) => {
      if(!item.checking){
@@ -109,15 +111,13 @@ class App extends Component {
       
     });
 
+    /* render of completed items */
+
     let myNotes2 = notes.map( (item , index) => {
       if(item.checking){
        return <Route path="/completed" exact key={index} render={(routeProps) => (<Completed {...routeProps} note={item.note} key={index} index={index} delete={this.delete} edit={this.edit} checking={item.checking} changeChecking={this.changeChecking}/>)}/>
        }
      });
-
-    
-
-
 
     
 

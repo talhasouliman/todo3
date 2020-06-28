@@ -4,7 +4,6 @@ class All extends Component {
 
     state = {
       isEdit : false,
-
     } 
     
     change = () => {
@@ -24,6 +23,8 @@ class All extends Component {
 
     }
 
+    /* render of items added */
+
     renderNote = () => {  
       let mydelete = this.props.delete;
       let note = this.props.note;
@@ -34,16 +35,14 @@ class All extends Component {
       let {checking} = this.props;
       let classList = "through";
       let classList1 = "myNote ";
-      (checking) ? classList1 = classList1 + classList : console.log("hi"); 
-      
+      if(checking){classList1 = classList1 + classList}
 
       let {changeChecking} = this.props;
 
       
 
       return (
-         
-
+   
           <li className="ourNotes">
              <input type="checkbox" checked={checking} onChange={() => changeChecking(index)}/>
              <span className={classList1} onDoubleClick={() => this.change()}>{note}</span>
@@ -51,6 +50,8 @@ class All extends Component {
           </li> 
           );
     }
+
+    /* render of form using for updating notes */
 
     renderForm = ()  => {
       let {note} = this.props;
@@ -64,8 +65,6 @@ class All extends Component {
 
     render(){
       let {isEdit} = this.state;
-
-      
 
       return (
         <Fragment>

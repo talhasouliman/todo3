@@ -1,11 +1,9 @@
 import React, {Component, Fragment} from 'react';
 
-
 class Completed extends Component {
 
     state = {
       isEdit : false,
-
     } 
     
     change = () => {
@@ -35,7 +33,7 @@ class Completed extends Component {
       let {checking} = this.props;
       let classList = "through";
       let classList1 = "myNote ";
-      (checking) ? classList1 = classList1 + classList : console.log("hi"); 
+      if(checking){classList1 = classList1 + classList} 
       
 
       let {changeChecking} = this.props;
